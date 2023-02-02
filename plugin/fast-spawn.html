@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Jvav 图形化</title>
+		<link rel="icon" href="../icon.png">
+		<link type="text/css" rel="stylesheet" href="https://api.urasoft.top/api/uramain/uramain.min.css"/>
+		<meta name="viewport" content="width=device-width,initial-scale=0,maximum-scale=1.0,minimum-scale=0.7,user-scalable=no">
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.js"></script>
+		<style>
+			:root,body,#main{
+				width: 100%;
+				height: 100%;
+			}
+			#main{
+				background-image: linear-gradient(165deg,#2ecc71,#3498db);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			#code{
+				margin-left: 20px;
+				display: inline-block;
+				width: 40%;
+				height: 80%;
+				outline: none;
+				border: 1px solid #363636;
+				resize: none;
+				font-weight: bold;
+				font-size: 18px;
+				font-family: 'microsoft yahei';
+				flex: 1;
+				padding: 5px;
+			}
+			#tools{
+				flex: 1;
+			}
+			#buttons button{
+				display: inline-block;
+				background:#f1f1f1;
+				border: 1px solid #363636;
+				outline: none;
+				border-radius: 5px;
+				height: 30px;
+				transition: all .3s;
+				margin-bottom: 10px;
+			}
+			#buttons button:hover{
+				background: #fff;
+			}
+			#buttons button:active{
+				transform: scale(.95);
+				filter: brightness(.95);
+			}
+			#spawn{
+				background: #f1f1f1;
+				border: 1px solid #363636;
+				width: 200px;
+				height: 100px;
+				font-size: 24px;
+				font-weight: bold;
+				transition: all .3s;
+			}
+			#spawn:hover{
+				background: #fff;
+			}
+			#spawn:active{
+				transform: scale(.95);
+				filter: brightness(.95);
+			}
+			#buttons{
+				margin-bottom: 30px;
+			}
+			#topright{
+				position: absolute;
+				top: 0;
+				right: 20px;
+				text-align: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<textarea id="code" autofocus></textarea>
+			<div id="tools">
+				<h1>立刻插入内容</h1>
+				<div id="buttons">
+					<button onclick='code = document.getElementById("code").value+"time";document.getElementById("code").value = code'>当前时间</button>
+					<button onclick='code = document.getElementById("code").value+"help";document.getElementById("code").value = code'>帮助</button>
+					<button onclick='code = document.getElementById("code").value+"fbold lbold";document.getElementById("code").value = code'>粗体</button>
+					<button onclick='code = document.getElementById("code").value+"fskew lskew";document.getElementById("code").value = code'>斜体</button>
+					<button onclick='code = document.getElementById("code").value+"fahref fbhref lhref";document.getElementById("code").value = code'>超链接</button>
+					<button onclick='code = document.getElementById("code").value+"fheader lheader";document.getElementById("code").value = code'>大标题</button>
+					<button onclick='code = document.getElementById("code").value+"ftitle ltitle";document.getElementById("code").value = code'>软件名称</button>
+					<button onclick='code = document.getElementById("code").value+"selectnone";document.getElementById("code").value = code'>不可选中</button>
+					<button onclick='code = document.getElementById("code").value+"midcenter";document.getElementById("code").value = code'>完全居中</button>
+				</div>
+				<input type="button" value="生成" id="spawn" onclick="download()"/><p/>
+				<input type="button" value="退出" style="width: 200px;height: 30px;border: 1px solid #363636;cursor: pointer;" onclick="location.href ='../market.html'"/>
+			</div>
+		</div>
+	</body>
+	<script>
+		var code = document.getElementById('code').value;
+		function download(){
+			var name = document.getElementsByTagName('title')[0].innerText;
+			var text = document.getElementById('code').value;
+			var blob = new Blob ([text],{type:'jvr/jvr'});
+			var oA = document.createElement('a');
+			var url = window.URL.createObjectURL(blob);
+			oA.download =  name + '.jvr';
+			oA.href = url;
+			document.body.appendChild(oA);
+			oA.click();
+			document.body.removeChild(oA);
+			alert('生成成功!\nMade By:©Power Light Studio 2017\nversion:v0.1.32\n插件库支持版本:ZOOMT20')
+		}
+	</script>
+</html>

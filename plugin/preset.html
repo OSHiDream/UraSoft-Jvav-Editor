@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Jvav 预设向导</title>
+		<link rel="icon" href="../icon.png"/>
+		<link type="text/css" rel="stylesheet" href="https://api.urasoft.top/api/uramain/uramain.min.css"/>
+		<meta name="viewport" content="width=device-width,initial-scale=0,maximum-scale=1.0,minimum-scale=0.7,user-scalable=no">
+		<script src="../js/noright.js" type="text/javascript"></script>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.js"></script>
+		<style>
+			.middle{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+				width: 100%;
+			}
+			.center{
+				position: absolute;
+				text-align: center;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+			:root{
+				background-color: #cafbff;
+				color: #000;
+				font-family: 'sans-serif','microsoft yahei';
+				overflow: hidden;
+			}
+			.text{
+				font-family: 'sans-serif','microsoft yahei';
+				display: inline-block;
+				border: 1px solid #363636;
+				width: 200px;
+				height: 30px;
+				padding-left: 5px;
+				padding-right: 5px;
+				outline: none;
+			}
+			.text:focus::-webkit-input-placeholder{
+				color: transparent;
+			}
+			.text:focus::-moz-placeholder{
+				color: transparent;
+			}
+			.text:focus::-ms-input-placeholder{
+				color: transparent;
+			}
+			.select-list{
+				outline: 1px solid #363636;
+				display: inline-block;
+				border: 5px;
+				width: 212px;
+				height: 30px;
+			}
+			.select-list option:hover{
+				background-color: hotpink;
+			}
+			#topleft{
+				position: absolute;
+				left: 10px;
+				top: 3px;
+				color: gray;
+				text-align: left;
+			}
+			#topleft p{
+				margin: 0;
+				padding: 0;
+			}
+			.normal-btn{
+				border: 1px solid #363636;
+				background-color: #f1f1f1;
+				display: inline-block;
+				width: 100px;
+				height: 80px;
+				cursor: pointer;
+				font-size: 22px;
+			}
+			.normal-btn:active{
+				background-color: #f6f6f6;
+			}
+			#topright{
+				position: absolute;
+				top: 0;
+				right: 20px;
+				text-align: left;
+			}
+			#topright p{
+				transition: all .2s;
+				padding: 10px;
+				font-size: 20px;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+			#topright p:hover{
+				background-color: #d5d5d5;
+			}
+		</style>
+		<script>
+			function select(){
+				layer.msg('<b>保存完成</b>',{icon:1});
+			}
+		</script>
+	</head>
+	<body>
+		<div id="topleft">
+			<p>version:0.14.1</p>
+			<p>Jvav Editor Beta Plugin v0.3.7</p>
+			<p>jvav preset v0.14.1</p>
+		</div>
+		<div id="topright">
+			<p onclick="location.href ='../market.html'">返回</p>
+		</div>
+		<div class="center">
+			<img src="../img/ads.jpg" draggable="false" width="330px" height="160px" alt="logo" style="border-radius: 5px;">
+			<h1>快速生成 Jvav 程序</h1>
+			<div style="float: left;text-align: left;">
+				<input type="text" placeholder="请在下面选中你想要的预设" name="app-name" id="app-name" autocomplete="off" class="text"/><p/>
+				<select name="select" id="select-list" class="select-list" onchange="select()">
+					<option value="jvavhelp">Jvav 帮助</option>
+					<option value="jvavhref">Jvav 超链接</option>
+					<option value="jvavboldskew">Jvav 粗体斜体</option>
+				</select>
+			</div>
+			<div style="float: right;text-align: left;">
+				<button class="normal-btn" id="spawn" onclick="spawn()">生成</button>
+			</div>
+		</div>
+	</body>
+	<script>
+		var select_value = document.getElementById('select-list');
+		var spawn_btn = document.getElementById('spawn');
+		function spawn(){
+			switch(select_value.value){
+				case 'jvavhelp':
+					window.open('preset-file/jvavhelp.jvr');break;
+				case 'jvavhref':
+					window.open('preset-file/jvavhref.jvr');break;
+				default:
+					window.open('preset-file/jvavboldskew.jvr');break;
+			}
+		}
+	</script>
+</html>
