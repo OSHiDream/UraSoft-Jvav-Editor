@@ -1,0 +1,54 @@
+			:root{
+				background-color:#222222 ;
+				color: #adadad;
+			}
+			#codetext{
+				display: inline-block;
+				width: 80%;
+				height: 60%;
+				resize: none;
+				border: none;
+				outline: none;
+				font-size: 20px;
+				transition: all .3s;
+				padding: 10px;
+				border-radius: 10px;
+				font-family: 'microsoft yahei';
+				font-weight: bold;
+				background-color: #464646;
+				color: #adadad;
+			}
+			#codetext:focus{
+				box-shadow: 0 0 10px #00ffff;
+			}
+			#toplist{
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				position: absolute;
+				top: 0;
+				height: 100%;
+				box-shadow: 0 0 10px #000;
+				font-weight: lighter;
+				color: #f1f1f1;
+			}
+			#toplist p{
+				display: inline-block;
+				margin-right: 10px;
+				padding: 5px;
+			}
+			.toplist-btn{
+				cursor: pointer;
+				border-radius: 5px;
+				transition: all .3s;
+			}
+			.toplist-btn:hover{
+				background-color: rgba(113, 113, 113, .6);
+			}
+			.toplist-btn:active{
+				background-color: rgba(113, 113, 113, .4);
+			}
+			.toplist-text{
+				display: none;
+			}
