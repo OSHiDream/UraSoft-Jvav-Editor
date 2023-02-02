@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>打开jvr文件</title>
+		<link rel="icon" href="icon.png"/>
+		<link type="text/css" rel="stylesheet" href="https://api.urasoft.top/api/uramain/uramain.min.css"/>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.js"></script>
+		<script src="js/noright.js"></script>
+		<script src="js/jvav.js"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=0,maximum-scale=1.0,minimum-scale=0.8,user-scalable=no">
+		<style>
+			@font-face {
+			  font-family: 'iconfont';
+			  src: url('font/iconfont.woff2?t=1666428224222') format('woff2'),
+			       url('font/iconfont.woff?t=1666428224222') format('woff'),
+			       url('font/iconfont.ttf?t=1666428224222') format('truetype');
+			}
+			.iconfont {
+			  font-family: "iconfont" !important;
+			  font-size: 18px;
+			  font-style: normal;
+			  -webkit-font-smoothing: antialiased;
+			  -moz-osx-font-smoothing: grayscale;
+			}
+			.center{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+				width: 100%;
+			}
+			.middle{
+				position: absolute;
+				text-align: center;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+			:root{
+				background-color:#2b2b2b;
+				color: #f1f1f1;
+			}
+			.container{
+				width: 160px;
+				margin: 30px auto;
+			}
+			.filepicker{
+				color: #FFF;
+				position: relative;
+				width: 160px;
+				height: 44px;
+				line-height: 44px;
+				text-align: center;
+				color: #f1f1f1;
+				background-color: rgba(0, 255, 255, 0.8);
+				backdrop-filter: blur(30px);
+				border-radius:10px ;
+				box-shadow: 0 0 10px #000;
+				cursor: default;
+				transition: all .2s;
+				margin-bottom: -12px;
+			}
+			.filepicker:hover{
+				filter: brightness(1.05);
+				box-shadow: 0 0 15px #000;
+			}
+			.filepicker:active{
+				filter: brightness(.9);
+				transform: scale(.9);
+			}
+			.filepicker input[type='file']{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 160px;
+				height: 44px;
+				opacity: 0;
+				cursor: pointer;
+			}
+			label{font-weight: bold;font-size: 18px;}
+			#run{
+				display: none;
+				border: none;
+				border-radius: 5px;
+				background: #f1f1f1;
+				width: 120px;
+				height: 40px;
+				box-shadow: 0 0 10px #000;
+				font-weight: bold;
+				color: #000;
+				cursor: pointer;
+				transition: all .2s;
+			}
+			#run:active{
+				filter: brightness(.9);
+				transform: scale(.9);
+			}
+			#home{
+				cursor: pointer;
+				transition: all .2s;
+			}
+			#home:hover{
+				text-shadow: 0 0 10px #000;
+			}
+			#home:active{
+				filter: brightness(.9);
+				transform: scale(.9);
+			}
+		</style>
+	</head>
+	<body>
+		<b title="返回主页" style="position: absolute;top: 14px;right: 14px;font-size: 24px;" class="iconfont" id="home" onclick="back()">&#xe61d;</b>
+		<div class="middle">
+			<h1 style="margin-bottom: -14px;overflow: hidden;white-space: nowrap;">请选中.jvr文件打开:</h1>
+			<div class="container">
+				<div class="filepicker">
+					<label class="iconfont">&#xe65e; 点击选择文件</label>
+					<input type="file" id="openfile"/>
+				</div>
+			</div>
+			<button id="run" onclick="run()" class="iconfont" style="font-size: 16px;">&#xe6c1; 运行</button>
+		</div>
+	</body>
+	<script>
+		var ofile = document.getElementById('openfile');
+		var code;
+		ofile.onchange = function(){
+			var file = ofile.files[0];
+			var reader = new FileReader();
+			reader.readAsText(file,"utf-8");
+			reader.onload = function(){
+				code = this.result;
+				document.getElementById('run').style.display = 'inline-block';
+				layer.msg('<b style="color:#000;display:inline-block;text-shadow:none;padding:0;margin:0">上传成功</b>',{time:600,icon:1,shift : 4,scrollbar:false,offset:'30px'});
+		}
+	}
+		function back(){
+			layer.load(1,{shade:[.8,'rgba(0,0,0,.9)']});
+			setTimeout("location.href='index.html'",400);
+		}
+	</script>
+</html>

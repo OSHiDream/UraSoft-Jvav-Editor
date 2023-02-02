@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>新建Jvav工程</title>
+		<link rel="icon" href="icon.png"/>
+		<link type="text/css" rel="stylesheet" href="https://api.urasoft.top/api/uramain/uramain.min.css"/>
+		<link rel="stylesheet" href="css/main.css" id="style"/>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.js"></script>
+		<script src="js/menu.js" charset="utf-8"></script>
+		<script src="js/noright.js"></script>
+		<script src="js/jvav.js"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=0,maximum-scale=1.0,minimum-scale=0.7,user-scalable=no">
+		<style>
+			@font-face {
+			  font-family: 'iconfont';
+			  src: url('font/iconfont.woff2?t=1666428224222') format('woff2'),
+			       url('font/iconfont.woff?t=1666428224222') format('woff'),
+			       url('font/iconfont.ttf?t=1666428224222') format('truetype');
+			}
+			.iconfont {
+			  font-family: "iconfont" !important;
+			  font-size: 18px;
+			  font-style: normal;
+			  -webkit-font-smoothing: antialiased;
+			  -moz-osx-font-smoothing: grayscale;
+			}
+			.center{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+				width: 100%;
+			}
+			.middle{
+				position: absolute;
+				text-align: center;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+			@media(max-width:720px){
+				.toplist-text{
+					display: none;
+				}
+				#toplist p{
+					font-size: 22px;
+				}
+				#theme-set{
+					display: inline-block;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="toplist">
+			<div style="position: absolute;left: 30px;overflow:hidden;white-space: nowrap;">
+					<p id="toplist-save" class="toplist-btn iconfont" onclick="save()">&#xec09;<span class="toplist-text">保存</span></p>
+					<p id="toplist-run" class="toplist-btn iconfont" onclick="run()">&#xe6c1;<span class="toplist-text">运行</span></p>
+					<p id="toplist-filename" class="toplist-btn iconfont" onclick="renamefile()">&#xe657;<span class="toplist-text">重命名项目</span></p>
+					<p id="toplist-export" class="toplist-btn iconfont" onclick="download()">&#xe65e;<span class="toplist-text">导出.jvr文件</span></p>
+					<p id="toplist-style" class="toplist-btn iconfont" onclick="check_style()"><span id="text-name">&#xe63e;<span class="toplist-text" id="theme-set">极域主题</span></span></p>
+					<p id="toplist-back" class="toplist-btn iconfont" onclick="back()">&#xe61d;<span class="toplist-text">返回主页</span></p>
+			</div>
+		</div>
+		<div class="center">
+			<textarea id="codetext" autofocus></textarea>
+		</div>
+	</body>
+	<script>
+		var e=event||window.event;
+		document.onkeydown = function(e) {
+		        if(e.ctrlKey && e.keyCode == 83) {
+		           save();
+					event.preventDefault();
+				}
+				else if(e.ctrlKey && e.keyCode == 82){
+					run();
+					event.preventDefault();
+				}
+				else if(e.keyCode == 113){
+					renamefile();
+					event.preventDefault();
+				}
+				else if(e.ctrlKey && e.keyCode == 68){
+					download();
+					event.preventDefault();
+				}
+				else if(e.ctrlKey && e.keyCode == 80){
+					check_style();
+					event.preventDefault();
+				}
+			}
+	</script>
+</html>

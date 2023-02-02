@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Jvav 扩展市场</title>
+		<link rel="icon" href="icon.png"/>
+		<link type="text/css" rel="stylesheet" href="https://api.urasoft.top/api/uramain/uramain.min.css"/>
+		<meta name="viewport" content="width=device-width,initial-scale=0,maximum-scale=1.0,minimum-scale=0.7,user-scalable=no">
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.js"></script>
+		<script src="js/noright.js"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=0,maximum-scale=1.0,minimum-scale=0.7,user-scalable=no">
+		<style>
+			@font-face {
+			  font-family: 'iconfont';
+			  src: url('font/iconfont.woff2?t=1666428224222') format('woff2'),
+			       url('font/iconfont.woff?t=1666428224222') format('woff'),
+			       url('font/iconfont.ttf?t=1666428224222') format('truetype');
+			}
+			.iconfont {
+			  font-family: "iconfont" !important;
+			  font-style: normal;
+			  -webkit-font-smoothing: antialiased;
+			  -moz-osx-font-smoothing: grayscale;
+			}
+			:root{
+				width: 100%;
+				height: 100%;
+				background-color: #666666;
+				color: #f1f1f1;
+				text-shadow: 0 0 10px #363636;
+			}
+			.center{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+				width: 100%;
+			}
+			#market-title{
+				margin-bottom: 50px;
+				transform: translateX(30px);
+				margin-top: 30px;
+			}
+			#market-title::after{
+				text-shadow: none;
+				font-size: 22px;
+				content: 'Beta Edition';
+				position: relative;
+				top: 30px;
+				right: 70px;
+				background-image: linear-gradient(165deg,#1abc9c,#2ecc71,#3498db);
+				-webkit-background-clip: text;
+				color: transparent;
+			}
+			.app{
+				display: inline-block;
+				background-color: #fff;
+				box-shadow: 0 0 20px #363636;
+				width: 250px;
+				height: 120px;
+				border-radius: 5px;
+				zoom: 1;
+				text-shadow: none;
+				color: #000;
+				text-align: left;
+				margin-right: 30px;
+				margin-bottom: 20px;
+			}
+			.app::after{
+				content:"";
+				height:0;
+				line-height:0;
+				display:block;
+				visibility:hidden;
+				clear:both;
+			}
+			.app-icon{
+				float: left;
+				margin-top: 30px;
+			}
+			.app-title{
+				display: inline-block;
+				margin-top: 20px;
+			}
+			.app-intro{
+				font-size: 14px;
+				margin: 0;
+				padding: 0;
+			}
+			.app-get{
+				display: inline-block;
+				border: none;
+				background-color: #0055ff;
+				color: #fff;
+				padding-left: 5px;
+				padding-right: 5px;
+				margin-top: 3px;
+				border-radius: 3px;
+				transition: all .3s;
+				cursor: pointer;
+			}
+			.app-get:hover{
+				background-color: #00aaff;
+			}
+			hr{
+				border: none;
+				border-bottom: 1px solid #f1f1f1;
+				width: 100%;
+				border-radius: 10px;
+			}
+			#home{
+				cursor: pointer;
+				transition: all .2s;
+			}
+			#home:hover{
+				text-shadow: 0 0 10px #000;
+			}
+			#home:active{
+				filter: brightness(.9);
+				transform: scale(.9);
+			}
+			#maker{
+				margin: 0 auto;
+				width: 85%;
+			}
+		</style>
+	</head>
+	<body>
+			<h1 class="iconfont" id="market-title">&#xeb8f; Jvav扩展市场</h1><hr/>
+			<b title="返回主页" style="position: absolute;top: 14px;right: 14px;font-size: 24px;" class="iconfont" id="home" onclick="back()">&#xe61d;</b>
+			<div id="show">
+				<h2 class="iconfont">&#xe6c1; 本地扩展</h2>
+				<div class="app">
+					<img src="icon.png" draggable="false" width="60px" height="60px" class="app-icon" />
+					<b class="app-title">Jvav 预设向导</b>
+					<p class="app-intro">您不需要书写Jvav代码即可使用此扩展编写程序</p>
+					<button class="app-get" id="preset">+ 打开</button>
+				</div>
+				<div class="app">
+					<img src="icon.png" draggable="false" width="60px" height="60px" class="app-icon" />
+					<b class="app-title">Jvav 图形化</b>
+					<p class="app-intro">您可以完全没有写代码的经验直接使用界面操作</p>
+					<button class="app-get" id="fast-spawn">+ 打开</button>
+				</div>
+			</div><hr/>
+			<div id="cloud">
+				<h2>云端扩展</h2>
+				<i style="color: red;display: inline-block;margin-bottom: 10px;font-weight: bold;">(((φ(◎ロ◎;)φ))) 此功能需要联机，请先激活联机账户</i>
+			</div><hr/>
+			<div id="maker">
+				<h2 class="iconfont">&#xe699; 创造你的扩展</h2>
+				<i>UraSoft Jvav Editor 是一个十分开放的编辑器，您可以修改编辑器样貌甚至是 Jvav 语言</i>
+				<br/><b>请使用以下方法进行创造扩展:</b>
+					<p style="margin-bottom: 0;">1.下载 Jvav JBK</p>
+					<p style="margin-top: 0;margin-bottom: 30px;">2.直接使用 Jvav 编写</p>
+					<div style="padding-bottom: 10px;"></div>
+			</div>
+	</body>
+	<script>
+		function back(){
+			layer.load(1,{shade:[.8,'rgba(0,0,0,.9)']});
+			setTimeout("location.href='index.html'",400);
+		}
+		$('.notfound').click(function(){
+			layer.load(1,{shade:[.8,'rgba(0,0,0,.9)'],time:8000});
+			setTimeout("layer.msg('<b style=color:#000;text-shadow:none>获取失败，请检查您的网络配置</b>',{icon:2})",8000);
+		})
+		$('#preset').click(function(){
+			location.href ='plugin/preset.html';
+		})
+		$('#fast-spawn').click(function(){
+			location.href ='plugin/fast-spawn.html';
+		})
+	</script>
+</html>

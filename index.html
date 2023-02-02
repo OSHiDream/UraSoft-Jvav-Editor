@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=0,maximum-scale=1.0,minimum-scale=0.7,user-scalable=no">
+		<link rel="icon" href="icon.png"/>
+		<link type="text/css" rel="stylesheet" href="https://api.urasoft.top/api/uramain/uramain.min.css"/>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.js"></script>
+		<script src="js/noright.js"></script>
+		<script src="https://file.urasoft.top/js/jvav/version.js?2"></script>
+		<title>UraSoft Jvav Editor</title>
+		
+		<style>
+			@font-face {
+			  font-family: 'iconfont';
+			  src: url('font/iconfont.woff2?t=1666428224222') format('woff2'),
+			       url('font/iconfont.woff?t=1666428224222') format('woff'),
+			       url('font/iconfont.ttf?t=1666428224222') format('truetype');
+			}
+			.iconfont {
+			  font-family: "iconfont" !important;
+			  font-size: 16px;
+			  font-style: normal;
+			  -webkit-font-smoothing: antialiased;
+			  -moz-osx-font-smoothing: grayscale;
+			}
+			:root{
+				background-color:#2b2b2b ;
+				color: #f1f1f1;
+			}
+			.center{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+				width: 100%;
+			}
+			#main{
+				position: absolute;
+				text-align: center;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.choose{
+				display: inline-block;
+				color: #2980b9;
+				text-decoration: none;
+				transition: all .2s;
+				margin-top: 2px;
+				cursor: pointer;
+				font-size: 16px;
+				z-index: 2;
+			}
+			.choose:active{
+				opacity: .7;
+			}
+			#aboutbtn{
+				position: absolute;
+				top: 2px;
+				right: 2px;
+				transition: all .3s;
+				cursor: pointer;
+			}
+			#aboutbtn:hover{
+				filter: brightness(1.1);
+				filter: drop-shadow(0 0 6px #000); 
+			}
+			#aboutbtn:active{
+				filter: brightness(.9);
+				opacity: .8;
+				transform: scale(.9);
+				filter: drop-shadow(0 0 6px #000); 
+			}
+			#updating{
+				position: absolute;
+				top: 9px;
+				right: 45px;
+				transition: all .3s;
+				cursor: pointer;
+			}
+			#updating:hover{
+				filter: brightness(1.1);
+				filter: drop-shadow(0 0 6px #000); 
+			}
+			#updating:active{
+				filter: brightness(.9);
+				opacity: .8;
+				transform: scale(.9);
+				filter: drop-shadow(0 0 6px #000); 
+			}
+			#ads{
+				position: absolute;
+				text-align: center;
+				bottom: 20px;
+				left: 50%;
+				transform: translateX(-50%);
+				z-index: -1;
+			}
+			#begining{
+				margin-top: 30px;
+				display: flex;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/about.png" id="aboutbtn" width="40px" height="40px" draggable="false" title="关于" onclick="aboutus()"/>
+		<img src="img/updating.png" title="检测更新" onclick="updating()" alt="update" id="updating" width="26px" height="26px" draggable="false"/>
+		<div id="main">
+			<img src="icon.png" draggable="false"/>
+			<div style="overflow: hidden;white-space: nowrap;">
+				<h1>UraSoft Jvav Editor</h1>
+				<h4>一个可以编写 Jvav 语言的代码编辑器</h4>
+			</div>
+			<div id="begining">
+				<div style="text-align: left;flex: 1;margin-top: -2px;">
+					<a class="choose iconfont" id="newfile">&#xe699;新建文件</a><br/>
+					<a class="choose iconfont" id="openfilebtn">&#xeabf;打开文件</a><br/>
+					<a class="choose iconfont" id="market">&#xeb8f;扩展市场</a>
+				</div>
+				<div style="flex: 1;overflow: hidden;white-space: nowrap;">
+					<b>"我们比Java更牛逼!"</b><br/>
+					<b>"Java只是盗版货"</b><br/>
+					<b>"现已推出jaba语言"</b>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var local_version = 'Beta 0.3';
+		window.onload = function(){
+				if(app_version != local_version){
+					var content = '<div style=color:#000;><img src=\'img/ads.jpg\' draggable=\'false\' width=\'240px\' height=\'120px\'/><p/><b>检测到新版本！</b><br/><i>当前版本:' + local_version + '</i><br/><i>最新版本:'+app_version+'</i></div><a class=\'url\' href=\'https://file.urasoft.top/exe/jvav/urasoft-jvav-editor.exe\' target=\'_blank\' draggable=\'false\'><b>立刻安装最新版本</b></a>'+'<div style=color:#000;><b>更新须知:</b>'+'<p>最新Jvav版本:' + jvav_version + '</p>' + '<p>更新内容:<br/><span style=color:skyblue;font-weight:bold>' + update_text + '</span></p>' + '</div>';
+					layer.open({title:["<b>版本检测</b>","text-align:left"],content:content})
+			}
+		}
+		function updating(){
+				if(app_version != local_version){
+					var content = '<div style=color:#000;><b>检测到新版本！</b><br/><i>当前版本:' + local_version + '</i><br/><i>最新版本:'+app_version+'</i></div><a class=\'url\' href=\'https://file.urasoft.top/exe/jvav/urasoft-jvav-editor.exe\' target=\'_blank\' draggable=\'false\'><b>立刻安装最新版本</b></a>'+'<div style=color:#000;><b>更新须知:</b>'+'<p>最新Jvav版本:' + jvav_version + '</p>' + '<p>更新内容:<br/>' + update_text + '</p>' + '</div>';
+					layer.open({title:["<b>版本检测</b>","text-align:left"],content:content})
+			}else{
+				layer.msg('<b style=color:#000>已是最新版本</b>',{icon:1,time:1000})
+			}
+		}
+		function aboutus(){
+			var about = '"<img src=\'icon.png\' width=100px height=100px draggable=\'false\'/><br/><b style=color:#000>UraSoft Jvav Editor (Beta 0.2)<br/>适用于Windows的Jvav代码编辑器<br/>我们采取最新Jvav语法  <a onclick=\'nw.Shell.openExternal(\"https://docs.jvav.space/\")\' class=\'url\' style=\'cursor:pointer\'>查看文档</a><br/>Made By:UraSoft Studio 2022</b>"'
+			layer.open({title:["<b>关于</b>","text-align:left"],content:about})
+		}
+		$('#newfile').click(function(){
+			layer.load(1,{shade:[.8,'rgba(0,0,0,.9)']});
+			setTimeout("location.href='newfile.html'",600);
+		})
+		$('#openfilebtn').click(function(){
+			layer.load(1,{shade:[.8,'rgba(0,0,0,.9)']});
+			setTimeout("location.href='openfile.html'",500);
+		})
+		$('#market').click(function(){
+			layer.load(1,{shade:[.8,'rgba(0,0,0,.9)']});
+			setTimeout("location.href='market.html'",600);
+		})
+	</script>
+</html>
