@@ -7,22 +7,23 @@ JVAV.SPACE 是 HiDream Studio 与 UraSoft Studio 的联合项目，旨在方便�
 ## 关于UraSoft JVAV Editor
 我们与 UraSoft 团队经过长期磨合，研究出了一套独立于现有 JVAV 体系的 JVAV 编程语言\
 我们的 JVAV Editer 主要由 UraSoft Studio 进行开发\
-是一款用于书写 JVAV 代码的编辑器，我们将繁杂 JVAV 代码模块打包成为可运行程序,并规定了 JVAV 语言的专属文件后缀 .JVR\
+是一款用于书写 JVAV 代码的编辑器，基于 Electron 开发，随时随地编写您的 JVAV 项目而不受网络限制（在线版：https://online.jvav.space）。
+我们将繁杂 JVAV 代码模块打包成为可运行程序,并规定了 JVAV 语言的专属文件后缀 .JVR\
 我们推出的这款 JVAV Editer 将 JVAV 语言从编程语言变成了半标记语言，大大降低了开发者理解和编写的难度！
 ## 关于本开源项目
-UraSoft Jvav Editor 的在线开源版本
+基于 Electron 开发的 UraSoft Jvav Editor 应用程序
 ## 可以实现的功能
 + #### 基本功能
 - [x] 编写 JVAV 代码
 - [x] 运行 JVAV 程序
 + #### 科学性功能
-- [ ] 无中生有
-- [ ] 新元素的创造
+- [ ] 在线粒子对撞
+- [ ] 缔造新分子
 + #### 生物性功能
-- [ ] 脑电波 JVAV 编译
-- [ ] 人脑思维控制
+- [ ] 生物电编译
+- [ ] 实现无限分裂（永生）
 + #### 高阶功能
-- [ ] 穿梭时空
+- [ ] 无 CD 瞬移
 - [ ] 创造新物种
 - [ ] 修改地球 Online
 ## 添砖 JVAV
